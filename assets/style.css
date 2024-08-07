@@ -228,7 +228,7 @@ body{
  display: flex;
 }
 
-.btn-info a, .descricao-passeios a{
+.btn-info a, .btn-passeios a{
   padding: 5px 20px;
   color: var(--secundaria-color);
   background-color: var(--button-color);
@@ -239,7 +239,7 @@ body{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-info a:hover, .descricao-passeios a:hover{
+.btn-info a:hover, .btn-passeios a:hover{
   color: var(--button-color);
   background-color: var(--secundaria-color);
   
@@ -363,11 +363,17 @@ body{
 }
 
 /* Sessão Passeios */
+.container-passeios{
+  
+}
 
+.box-passeios{
+  display: flex;
+}
 
-
-
-
+.conteudo-post{
+  display: flex;
+}
 
 @media (max-width:804px){
 
