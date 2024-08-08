@@ -93,3 +93,30 @@ document.addEventListener('DOMContentLoaded', function(){
       showImage(currentIndex);
 
 });
+
+
+// Função Ativar e Esconder Postagens
+
+function showPost(type) {
+  
+  const posts = document.querySelectorAll('.conteudo-post');
+  const buttons = document.querySelectorAll('.btn-post');
+
+ 
+  posts.forEach(post => {
+    post.style.display = 'none';
+  });
+
+  
+  posts.forEach(post => {
+    if (post.classList.contains(type)) {
+      post.style.display = 'flex';
+    }
+  });
+
+  // Remove 'active' 
+  buttons.forEach(button => button.classList.remove('active'));
+
+  // Add 'active' 
+  document.getElementById(`${type}-post`).classList.add('active');
+}
