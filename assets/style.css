@@ -549,7 +549,7 @@ body{
   font-size: 14px;
 }
 
-.container-post-mobile{
+.container-post-mobile, .passeios-mobile{
   display: none;
 }
 
@@ -697,6 +697,49 @@ body{
   display: none;
 }
 
+
+/* Container Passeio Mobile */
+
+.passeios-mobile{
+  overflow-x: auto;
+  overflow-y: hidden;
+  background-color: var(--secundaria-color);
+  padding: 30px 20px;
+  display: flex;
+}
+
+.info-passeios-mobile{
+  display: inline-flex;
+  flex-wrap: nowrap;
+  padding-right: 20px;
+  gap: 20px;
+}
+
+.detalhe-passeio-mobile{
+  flex: 1 0 auto;
+  width: 270px;
+}
+
+
+.detalhe-passeio-mobile img{
+  width: 270px;
+  height: auto;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.descricao-passeio-mobile{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding:20px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: var(--primaria-color);
+}
+
+/* Fim Container Passeio Mobile  */
+
 /* Container Post Mobile */
 .container-post-mobile{
   padding: var(--container-padding-mobile);
@@ -714,15 +757,18 @@ body{
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
+  gap: 5px;
+  padding-top: 5px;
 }
 
 .info-post-mobile{
     padding: 20px 0;
     padding-left: 20px;
     height: auto;
+    padding: 10px;
 }
 
-.info-post-mobile span{
+.info-post-mobile span,  .info-passeios-mobile span{
   font-family: var(--font-primary);
   color: var(--texto-color-span);
   font-size: 14px;
@@ -741,6 +787,7 @@ body{
   flex-wrap: wrap;
   flex-direction: column;
   gap: 10px;
+  padding-top: 10px;
 }
 
 .ultimo-post{
