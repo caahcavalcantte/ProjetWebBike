@@ -98,25 +98,38 @@ document.addEventListener('DOMContentLoaded', function(){
 // Função Ativar e Esconder Postagens
 
 function showPost(type) {
-  
-  const posts = document.querySelectorAll('.conteudo-post');
-  const buttons = document.querySelectorAll('.btn-post');
+  // Seleciona posts e botões para o container de posts móveis
+  const postsMobile = document.querySelectorAll('.info-post-mobile');
+  const buttonsMobile = document.querySelectorAll('.btn-post');
 
- 
-  posts.forEach(post => {
-    post.style.display = 'none';
-  });
+  // Seleciona posts e botões para o container de posts recentes
+  const postsRecent = document.querySelectorAll('.conteudo-post');
+  const buttonsRecent = document.querySelectorAll('.btn-post');
 
-  
-  posts.forEach(post => {
+  // Primeiro, esconda todos os posts em ambos os containers
+  postsMobile.forEach(post => post.style.display = 'none');
+  postsRecent.forEach(post => post.style.display = 'none');
+
+  // Exibe apenas os posts que correspondem ao tipo selecionado
+  postsMobile.forEach(post => {
     if (post.classList.contains(type)) {
-      post.style.display = 'flex';
+      post.style.display = 'block'; // Display 'block' para garantir que o display seja aplicado corretamente
     }
   });
 
-  // Remove 'active' 
-  buttons.forEach(button => button.classList.remove('active'));
+  postsRecent.forEach(post => {
+    if (post.classList.contains(type)) {
+      post.style.display = 'flex'; // 'flex' pode ser usado para alinhar os posts corretamente
+    }
+  });
 
-  // Add 'active' 
+  // Remove a classe 'active' de todos os botões
+  buttonsMobile.forEach(button => button.classList.remove('active'));
+  buttonsRecent.forEach(button => button.classList.remove('active'));
+
+  // Adiciona a classe 'active' ao botão correspondente
   document.getElementById(`${type}-post`).classList.add('active');
 }
+
+
+

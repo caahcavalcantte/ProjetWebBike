@@ -384,11 +384,15 @@ body{
 }
 
 .passeios{
- flex: 3 0 200px ;
+ flex: 2 0 200px ;
 }
 
 .container-posts{
   flex: 1 0 100px;
+}
+
+.container-posts h2{
+  padding-bottom: 10px;
 }
 
 #passeios{
@@ -514,9 +518,7 @@ body{
 }
 
 .recente{
-  background-color: #2f3a57
-
-  ;
+  background-color: #2f3a57;
   margin-bottom: 1px;
 }
 
@@ -524,6 +526,7 @@ body{
   background-color: var(--secundaria-color);
   margin-bottom: 1px;
 }
+
 
 .img-post{
   flex: 1 0 100px ;
@@ -536,11 +539,26 @@ body{
   object-fit: cover;
 }
 
+.info-posts{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-posts span{
+  font-size: 14px;
+}
+
+.container-post-mobile{
+  display: none;
+}
 
 /* Fim Container Post */
 
 
-@media (max-width:804px){
+
+
+@media (max-width:882px){
 
 /* Menu Navegação */
 
@@ -669,13 +687,75 @@ body{
 
   .passeios-itens{
     padding:10px  0 0;
-
+  }
 
 .passeio-none{
   display: none;
 }
-  
 
+.container-posts{
+  display: none;
+}
+
+/* Container Post Mobile */
+.container-post-mobile{
+  padding: var(--container-padding-mobile);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-post{
+  padding: 20px;
+}
+
+.box-post-mobile{
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.info-post-mobile{
+    padding: 20px 0;
+    padding-left: 20px;
+    height: auto;
+}
+
+.info-post-mobile span{
+  font-family: var(--font-primary);
+  color: var(--texto-color-span);
+  font-size: 14px;
+}
+
+.info-post-mobile.active{
+ display: flex;
+}
+
+.info-post-mobile.recente{
+  display: none;
+}
+
+.descricao-post-mobile{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ultimo-post{
+  padding-right: 20px;
+}
+
+
+.post-img-mobile img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
+/* Fim container post mobile */
+  
 }
 
 
@@ -720,5 +800,3 @@ body{
 
 }
 
-
-}
