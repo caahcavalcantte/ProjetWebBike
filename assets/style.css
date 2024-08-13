@@ -256,6 +256,7 @@ body{
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .next-img {
@@ -438,6 +439,10 @@ body{
   border-radius: 5px;
 }
 
+.passeios img{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .img-passeio{
   flex: 1 0 200px;
 }
@@ -447,6 +452,7 @@ body{
   height: 100%;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .descricao-passeio{
@@ -456,6 +462,7 @@ body{
   gap: 20px;
   padding: 20px;
   box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Início Container Post */
@@ -469,6 +476,7 @@ body{
   width: 100%;
   margin: 0;
   padding: 0;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .btn-post{
@@ -503,6 +511,10 @@ body{
   gap: 20px;
 }
 
+.conteudo-post img{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .conteudo-post.active{
   display: flex;
   flex-direction: column;
@@ -520,11 +532,13 @@ body{
 .recente{
   background-color: #2f3a57;
   margin-bottom: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .popular{
   background-color: var(--secundaria-color);
   margin-bottom: 1px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -555,7 +569,62 @@ body{
 
 /* Fim Container Post */
 
+/* Trilhas */
+.container-trilhas{
+height: auto;
+padding: var(--container-padding);
+}
 
+.content-trilha{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: var(--secundaria-color);
+  border-radius: 5px;
+}
+
+.info-trilhas{
+  flex: 3 0 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.box-descrica-trilhas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.metrica-trilha{
+  flex: 1 0 175px;
+  gap: 20px;
+}
+
+.metrica-trilha h3{
+  font-size: 16px;
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-weight: 100;
+  color: var(--texto-color-span);
+}
+
+.medalhas{
+  display: flex;
+}
+
+.detalhes-trilhas{
+  flex: 1 0 175px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detalhes-trilhas img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Fim Trilhas */
 
 
 @media (max-width:882px){
@@ -726,6 +795,7 @@ body{
   height: auto;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .descricao-passeio-mobile{
@@ -736,6 +806,7 @@ body{
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   background-color: var(--primaria-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Fim Container Passeio Mobile  */
@@ -766,6 +837,7 @@ body{
     padding-left: 20px;
     height: auto;
     padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .info-post-mobile span,  .info-passeios-mobile span{
@@ -800,8 +872,15 @@ body{
   height: auto;
   object-fit: cover;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 /* Fim container post mobile */
+
+.container-trilhas{
+  padding: var(--container-padding-mobile);
+}
+
+
   
 }
 
