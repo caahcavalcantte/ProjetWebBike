@@ -44,7 +44,6 @@ imagemFace.addEventListener('mouseout', function(){
 });
 
 
-
 // whatsapp
 const imagemGit = document.querySelector('.rede-github img');
 
@@ -57,6 +56,33 @@ imagemGit.addEventListener('mouseover', function() {
 
 imagemGit.addEventListener('mouseout', function() {
     this.src = svgOriginalGit
+});
+
+// Curtir trilha
+const imagemCurtir = document.querySelector('.curtir-trilha img');
+
+const srcOriginalCurtir = 'images/icons8-gostar-50.png';
+const srcAtivoCurtir = 'images/icons8-heart-50.png'; 
+
+let curtirAtivo = false;
+
+// Eventos de mouseover e mouseout para alteração de imagem
+imagemCurtir.addEventListener('mouseover', function() {
+    if (!curtirAtivo) { 
+        this.src = srcAtivoCurtir; 
+    }
+});
+
+imagemCurtir.addEventListener('mouseout', function() {
+    if (!curtirAtivo) { 
+        this.src = srcOriginalCurtir;
+    }
+});
+
+imagemCurtir.addEventListener('click', function() {
+    curtirAtivo = !curtirAtivo; 
+    
+    this.src = curtirAtivo ? srcAtivoCurtir : srcOriginalCurtir;
 });
 
 

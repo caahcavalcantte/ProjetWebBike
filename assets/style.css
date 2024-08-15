@@ -572,14 +572,24 @@ body{
 /* Trilhas */
 .container-trilhas{
 height: auto;
+display: flex;
+flex-direction: column;
+gap: 20px;
 padding: var(--container-padding);
+background-color: var(--secundaria-color);
+}
+
+.box-trilha{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var(--primaria-color);
+  border-radius: 5px;
 }
 
 .content-trilha{
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--secundaria-color);
-  border-radius: 5px;
 }
 
 .info-trilhas{
@@ -588,12 +598,38 @@ padding: var(--container-padding);
   flex-direction: column;
   gap: 20px;
   padding: 20px;
+  justify-content: space-between;
+}
+
+.detalhes-trilhas{
+  flex: 1 0 200px;
+}
+
+.title-info-trilhas{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.decricao-trilha{
+  padding: 20px 0;
+}
+
+.tipo-trilha, .curtir-trilha{
+ display: flex;
+ gap: 10px;
 }
 
 .box-descrica-trilhas{
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
+  padding: 20px;
+}
+
+.box-descrica-trilhas h3 {
+  padding-bottom: 5px;
 }
 
 .metrica-trilha{
@@ -601,7 +637,7 @@ padding: var(--container-padding);
   gap: 20px;
 }
 
-.metrica-trilha h3{
+.metrica-trilha h3, .title-info-trilhas h3, .curtir-trilha h3{
   font-size: 16px;
   font-family: var(--font-primary);
   font-style: normal;
@@ -611,23 +647,44 @@ padding: var(--container-padding);
 
 .medalhas{
   display: flex;
+  gap: 5px;
 }
 
-.detalhes-trilhas{
-  flex: 1 0 175px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.trilha-galeria-img{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 }
 
-.detalhes-trilhas img{
+.img-detaque-trilha{
+  flex: 2 0 200px;
+}
+
+.img-detaque-trilha img, .galeria-img-trilha img{
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
+.galeria-img-trilha{
+  flex: 1 0 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.detalhe-img1-trilha img{
+  border-top-right-radius: 5px;
+}
+
+
+
+
+
 /* Fim Trilhas */
 
 
-@media (max-width:882px){
+@media (max-width:939px){
 
 /* Menu Navegação */
 
@@ -688,7 +745,7 @@ padding: var(--container-padding);
     padding-top: 0;
   }
 
-  .background, .container-sobre , .container-passeios{
+  .background, .container-sobre , .container-passeios, .container-trilhas{
     flex-direction: column;
     padding: var(--container-padding-mobile);
   }
@@ -880,7 +937,13 @@ padding: var(--container-padding);
   padding: var(--container-padding-mobile);
 }
 
+.content-trilha{
+  flex-direction: column;
+}
 
+.detalhe-img1-trilha img{
+  border-top-right-radius: 0px;
+}
   
 }
 
@@ -923,6 +986,37 @@ padding: var(--container-padding);
     gap: 10px;
     
   }
+
+  .curtir-trilha h3{
+    display: none;
+  }
+
+
+ .box-descrica-trilhas{
+  gap: 10px;
+  padding-top: 0;
+}
+
+.decricao-trilha{
+  padding-bottom: 0;
+}
+
+.detalhes-trilhas{
+  padding: 0px;
+  align-content: center;
+}
+
+
+
+
+}
+
+
+@media (max-width:345px) {
+
+.galeria-img-trilha{
+  display: none;
+}
 
 }
 
