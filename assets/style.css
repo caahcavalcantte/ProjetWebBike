@@ -225,7 +225,7 @@ body{
  display: flex;
 }
 
-.btn-info a, .btn-passeios a{
+.btn-info a, .btn-passeios a, #btn-trilhas a{
   padding: 5px 20px;
   color: var(--secundaria-color);
   background-color: var(--button-color);
@@ -236,7 +236,7 @@ body{
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-info a:hover, .btn-passeios a:hover{
+.btn-info a:hover, .btn-passeios a:hover, #btn-trilhas a:hover{
   color: var(--button-color);
   background-color: var(--secundaria-color);
   
@@ -599,6 +599,10 @@ background-color: var(--secundaria-color);
   gap: 20px;
   padding: 20px;
   justify-content: space-between;
+}
+
+#btn-trilhas{
+  display: flex;
 }
 
 .detalhes-trilhas{
@@ -997,9 +1001,7 @@ background-color: var(--secundaria-color);
   padding-top: 0;
 }
 
-.decricao-trilha{
-  padding-bottom: 0;
-}
+
 
 .detalhes-trilhas{
   padding: 0px;
