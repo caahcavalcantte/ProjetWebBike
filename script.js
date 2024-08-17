@@ -158,4 +158,29 @@ function showPost(type) {
 }
 
 
+// Function esconder Galeria
+
+document.getElementById('toggleMore').addEventListener('click', function() {
+  
+  const galleries = document.querySelectorAll('.more-galleries');
+  const itemsShow = 1;
+  let shownCount = Array.from(galleries).filter(el => el.style.display === 'flex').length;
+
+  let iniciotIndex = shownCount;
+  let fimIndex = Math.min(shownCount + itemsShow, galleries.length);
+
+
+  // Exibir itens
+  for (let i = iniciotIndex; i < fimIndex; i++){
+    galleries[i].style.display = 'flex';
+  }
+
+  // Fim itens
+  if (fimIndex >= galleries.length) {
+    this.style.display = 'none';
+  }
+
+});
+
+
 
