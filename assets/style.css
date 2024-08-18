@@ -623,6 +623,7 @@ background-color: var(--secundaria-color);
 .box-descrica-trilhas{
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .metrica-trilha{
