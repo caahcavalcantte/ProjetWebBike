@@ -59,12 +59,13 @@ imagemGit.addEventListener('mouseout', function() {
 });
 
 // Curtir trilha
-const imagemCurtir = document.querySelector('.curtir-trilha img');
+const imagemCurtir = document.querySelectorAll('.curtir-trilha img');
 
 const srcOriginalCurtir = 'images/icons8-gostar-50.png';
 const srcAtivoCurtir = 'images/icons8-heart-50.png'; 
 
-let curtirAtivo = false;
+imagemCurtir.forEach(function(imagemCurtir){
+  let curtirAtivo = false;
 
 // Eventos de mouseover e mouseout para alteração de imagem
 imagemCurtir.addEventListener('mouseover', function() {
@@ -83,6 +84,8 @@ imagemCurtir.addEventListener('click', function() {
     curtirAtivo = !curtirAtivo; 
     
     this.src = curtirAtivo ? srcAtivoCurtir : srcOriginalCurtir;
+});
+
 });
 
 

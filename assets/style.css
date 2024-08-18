@@ -345,12 +345,6 @@ body{
   justify-content: center;
 }
 
-/* 
-.sobre-info p:last-child {
-  padding-top: 20px;
-} */
-
-
 .sobre-info, .sobre-img{
   flex: 1 0 200px;
   align-content: center;
@@ -386,7 +380,7 @@ body{
 .box-passeios{
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
 }
 
 .passeios{
@@ -620,6 +614,12 @@ background-color: var(--secundaria-color);
   padding: 20px 0;
 }
 
+.title-trilhas h2, .galeria-metricas, h2{
+  font-family: var(--font-primary);
+  font-style: normal;
+  font-size: 18px;
+}
+
 .box-descrica-trilhas{
   display: flex;
   flex-wrap: wrap;
@@ -697,6 +697,79 @@ background-color: var(--secundaria-color);
 }
 
 /* Fim Trilhas */
+
+
+/* Página Trilha */
+
+.bg-container-trilha{
+  background-color: var(--primaria-color);
+}
+
+.bg-box-trilha{
+  background-color: var(--secundaria-color);
+}
+
+#galeria-trilhas{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.galeria-map-trilha{
+  position: relative;
+  width: 100%;
+  padding-bottom: 75%; /* Proporção 4:3 */
+  height: 0;
+  overflow: hidden;
+  height: 100%; /* Mudar o height depois */
+}
+
+.galeria-map-trilha iframe{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.galeria-metricas{
+  padding-left: 20px;
+}
+
+.ciclismo-estrada{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center; 
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.ciclismo-estrada::after{
+  content: '';
+  width: 3px;
+  height: 30px;
+  right: 49,9%;
+  top: 50%;
+  background-color: var(--button-color);
+  position: absolute;
+  transform: translateY(-50%);
+}
+
+.info-estrada{
+  width: 100%;
+  padding: 0 5px;
+}
+
+.resultados{
+  border-top: 1px solid var(--texto-color-span);
+  padding: 20px 0;
+}
+
+
+
+
+
 
 
 @media (max-width:939px){
@@ -1039,6 +1112,15 @@ background-color: var(--secundaria-color);
     width: 100%;
     text-align: center;
     
+  }
+
+  #galeria-trilhas{
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .galeria-metricas{
+    padding: 0;
   }
   
 }
