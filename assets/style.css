@@ -623,7 +623,6 @@ background-color: var(--secundaria-color);
 .box-descrica-trilhas{
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
 }
 
 .metrica-trilha{
@@ -757,6 +756,11 @@ background-color: var(--secundaria-color);
   transform: translateY(-50%);
 }
 
+
+.ciclismo-estrada span, .info-resultados span{
+  font-size: 12px;
+}
+
 .info-estrada{
   width: 100%;
   padding: 0 5px;
@@ -766,6 +770,20 @@ background-color: var(--secundaria-color);
   border-top: 1px solid var(--texto-color-span);
   padding: 20px 0;
 }
+
+.info-resultados{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  gap: 10px;
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.info-resultados h3{
+  padding-bottom: 5px;
+}
+
 
 
 
@@ -1026,7 +1044,14 @@ background-color: var(--secundaria-color);
   padding: var(--container-padding-mobile);
 }
 
+#galeria-trilhas{
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
 
+.galeria-metricas{
+  padding: 10px 0 0;
+}
   
 }
 
@@ -1113,15 +1138,6 @@ background-color: var(--secundaria-color);
     width: 100%;
     text-align: center;
     
-  }
-
-  #galeria-trilhas{
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .galeria-metricas{
-    padding: 0;
   }
   
 }
