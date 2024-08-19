@@ -134,6 +134,10 @@ body{
   transition: 0.3s;
 }
 
+.menu-toggle span{
+  padding-bottom: 0;
+}
+
 .nav-menu{
   align-items: start;
   display: flex;
@@ -623,6 +627,7 @@ background-color: var(--secundaria-color);
 .box-descrica-trilhas{
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .metrica-trilha{
@@ -632,6 +637,11 @@ background-color: var(--secundaria-color);
 
 .metrica-trilha h3{
   padding-bottom: 10px;
+}
+
+.medalhas{
+  display: flex;
+  gap: 10px;
 }
 
 .imagens-trilhas{
@@ -709,27 +719,57 @@ background-color: var(--secundaria-color);
   background-color: var(--secundaria-color);
 }
 
+#galeria-trilhas h2{
+  text-transform: uppercase;
+}
+
 #galeria-trilhas{
   display: grid;
   grid-template-columns: 2fr 1fr;
 }
 
-.galeria-map-trilha{
+.galeria-info-trilha{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.galeria-map-trilhas{
   position: relative;
   width: 100%;
   padding-bottom: 75%; /* Proporção 4:3 */
   height: 0;
   overflow: hidden;
-  height: 100%; /* Mudar o height depois */
 }
 
-.galeria-map-trilha iframe{
+.galeria-map-trilhas iframe{
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.galeria-img-trilhas{
+  display: flex;
+  gap: 5px;
+  height: auto;
+}
+
+
+.trilhas-img-destaque{
+  flex: 2 0 100px;
+}
+
+.imagens-trilhas{
+  flex: 1 0 100px;
+}
+
+.imagens-trilhas img, .trilhas-img-destaque img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .galeria-metricas{
@@ -741,13 +781,14 @@ background-color: var(--secundaria-color);
   grid-template-columns: 1fr 1fr;
   justify-items: center; 
   text-align: center;
-  padding: 20px 0;
+  gap: 20px;
+  padding: 10px 0 30px;
   position: relative;
 }
 
 .ciclismo-estrada::after{
   content: '';
-  width: 3px;
+  width: 1px;
   height: 30px;
   right: 49,9%;
   top: 50%;
@@ -757,7 +798,7 @@ background-color: var(--secundaria-color);
 }
 
 
-.ciclismo-estrada span, .info-resultados span{
+.ciclismo-estrada span, .info-resultados span, .descricao-segmentos span{
   font-size: 12px;
 }
 
@@ -768,22 +809,102 @@ background-color: var(--secundaria-color);
 
 .resultados{
   border-top: 1px solid var(--texto-color-span);
+  border-bottom: 1px solid var(--texto-color-span);
   padding: 20px 0;
 }
 
 .info-resultados{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   gap: 10px;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   position: relative;
 }
 
-.info-resultados h3{
-  padding-bottom: 5px;
+.decricao-resultado{
+  position: relative;
 }
 
+.decricao-resultado::after{
+  content: '';
+  width: 1px;
+  height: 20px;
+  background-color: var(--button-color);
+  position: absolute;
+  bottom: 4px;
+  right: -7px;
+}
+
+.info-resultados h3, span{
+  padding-bottom: 10px;
+}
+
+.conquistas{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.box-segmentos{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px 0;
+}
+
+.container-segmentos{
+  padding: 20px 0;
+}
+
+.descricao-segmentos{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+
+.lista-trilha{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lista-trilha h2{
+  padding-bottom: 0;
+}
+
+.lista-trilha h3{
+  font-family: var(--font-primary);
+  padding: 0 0 10px;
+}
+
+.lista-trilha ul{
+  /* background-color: var(--primaria-color); */
+  line-height: 1.5;
+  padding: 20px;
+  /* border-radius: 5px; */
+}
+
+.lista-trilha li{
+  position: relative;
+  padding: 5px 0 5px 20px;
+  color: var(--texto-color-span);
+  font-size: 18px;
+}
+
+.lista-trilha li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--button-color); 
+  border-radius: 50%; 
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%); 
+}
 
 
 
@@ -903,7 +1024,7 @@ background-color: var(--secundaria-color);
   }
 
   .container-passeios h2, .container-trilhas h2{
-    padding-bottom: 10px;
+    padding-bottom: 20px;
   }
 
   .box-passeios{
@@ -1139,13 +1260,36 @@ background-color: var(--secundaria-color);
     text-align: center;
     
   }
+
+  .galeria-img-trilhas{
+    flex-direction: column;
+  }
+
+  .imagens-trilhas{
+    display: flex;
+  }
+
+  .imagens-trilhas div{
+    flex: 1;
+  }
+
+  .lista-trilha h2{
+    padding-bottom: 0;
+  }
+
+  .galeria-info-trilha{
+    gap: 30px;
+  }
   
 }
 
 
-@media (max-width:345px) {
+@media (max-width:346px) {
 
 .galeria-img-trilha{
+  display: none;
+}
+.decricao-resultado::after{
   display: none;
 }
 
