@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
+
 /* Cores */
 :root{
   --texto-color:#e5e5e5;
@@ -438,7 +439,7 @@ body{
 }
 
 .color{
-  background-color: var(--secundaria-color);
+  /* background-color: var(--secundaria-color); */
   border-radius: 5px;
 }
 
@@ -725,13 +726,15 @@ background-color: var(--secundaria-color);
 
 #galeria-trilhas{
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr;grid-template-rows: auto;
 }
 
 .galeria-info-trilha{
   display: flex;
   flex-direction: column;
   gap: 30px;
+  grid-column: 1/2;
+  grid-row: 1;
 }
 
 .galeria-map-trilhas{
@@ -774,6 +777,8 @@ background-color: var(--secundaria-color);
 
 .galeria-metricas{
   padding-left: 20px;
+  grid-column: 2/3;
+  grid-row: 1/3;
 }
 
 .ciclismo-estrada{
@@ -810,7 +815,7 @@ background-color: var(--secundaria-color);
 .resultados{
   border-top: 1px solid var(--texto-color-span);
   border-bottom: 1px solid var(--texto-color-span);
-  padding: 20px 0;
+  padding: 30px 0;
 }
 
 .info-resultados{
@@ -854,7 +859,7 @@ background-color: var(--secundaria-color);
 }
 
 .container-segmentos{
-  padding: 20px 0;
+  padding: 30px 0 20px;
 }
 
 .descricao-segmentos{
@@ -864,11 +869,24 @@ background-color: var(--secundaria-color);
   padding-top: 5px;
 }
 
+.ifp{
+  grid-column: 1/2;
+  grid-row: 2;
+  padding: 30px 0;
+}
+
+.pdt{
+  grid-column: 2/3;
+  grid-row: 2;
+}
+
 
 .lista-trilha{
   display: flex;
   flex-direction: column;
   gap: 20px;
+  grid-column: 1/2;
+  grid-row: 3;
 }
 
 .lista-trilha h2{
@@ -883,7 +901,7 @@ background-color: var(--secundaria-color);
 .lista-trilha ul{
   /* background-color: var(--primaria-color); */
   line-height: 1.5;
-  padding: 20px;
+  /* padding: 20px; */
   /* border-radius: 5px; */
 }
 
@@ -905,7 +923,6 @@ background-color: var(--secundaria-color);
   top: 50%;
   transform: translateY(-50%); 
 }
-
 
 
 
@@ -1172,6 +1189,21 @@ background-color: var(--secundaria-color);
 
 .galeria-metricas{
   padding: 10px 0 0;
+  grid-column: 1/1;
+  grid-row: 2 ;
+}
+
+.container-segmentos{
+  border-bottom: 1px solid var(--texto-color-span);
+}
+
+.ifp {
+  grid-row: 3;
+  padding:10px 0px;
+}
+
+.lista-trilha{
+  grid-row: 4;
 }
   
 }
@@ -1291,6 +1323,10 @@ background-color: var(--secundaria-color);
 }
 .decricao-resultado::after{
   display: none;
+}
+
+.info-resultados{
+  gap: 20px;
 }
 
 }

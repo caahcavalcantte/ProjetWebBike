@@ -164,26 +164,38 @@ function showPost(type) {
 // Function esconder Galeria
 
 document.getElementById('toggleMore').addEventListener('click', function() {
-  
   const galleries = document.querySelectorAll('.more-galleries');
   const itemsShow = 1;
   let shownCount = Array.from(galleries).filter(el => el.style.display === 'flex').length;
+  let iniciotIndex, fimIndex;
 
-  let iniciotIndex = shownCount;
-  let fimIndex = Math.min(shownCount + itemsShow, galleries.length);
+  if (shownCount < galleries.length) {
+    
+    iniciotIndex = shownCount;
+    fimIndex = Math.min(shownCount + itemsShow, galleries.length);
 
+    for (let i = iniciotIndex; i < fimIndex; i++) {
+      galleries[i].style.display = 'flex';
+    }
 
-  // Exibir itens
-  for (let i = iniciotIndex; i < fimIndex; i++){
-    galleries[i].style.display = 'flex';
+    // Atualizar o texto do botão 
+    if (fimIndex >= galleries.length) {
+      this.textContent = 'Clique para Esconder';
+    }
+  } else {
+    // Esconder itens
+    for (let i = 0; i < galleries.length; i++) {
+      galleries[i].style.display = 'none';
+    }
+    this.textContent = 'Clique para Mostrar Mais';
   }
-
-  // Fim itens
-  if (fimIndex >= galleries.length) {
-    this.style.display = 'none';
-  }
-
 });
+
+
+
+
+
+
 
 
 
