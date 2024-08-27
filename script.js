@@ -163,33 +163,106 @@ function showPost(type) {
 
 // Function esconder Galeria
 
-document.getElementById('toggleMore').addEventListener('click', function() {
-  const galleries = document.querySelectorAll('.more-galleries');
-  const itemsShow = 1;
-  let shownCount = Array.from(galleries).filter(el => el.style.display === 'flex').length;
-  let iniciotIndex, fimIndex;
+document.querySelectorAll('.toggleMore').forEach(button => {
+  button.addEventListener('click', function() {
+    const galleries = this.closest('.bg-box-trilha').querySelectorAll('.more-galleries');
+    const itemsShow = 1;
+    let shownCount = Array.from(galleries).filter(el => el.style.display === 'flex').length;
+    let iniciotIndex, fimIndex;
 
-  if (shownCount < galleries.length) {
-    
-    iniciotIndex = shownCount;
-    fimIndex = Math.min(shownCount + itemsShow, galleries.length);
+    if (shownCount < galleries.length) {
+      iniciotIndex = shownCount;
+      fimIndex = Math.min(shownCount + itemsShow, galleries.length);
 
-    for (let i = iniciotIndex; i < fimIndex; i++) {
-      galleries[i].style.display = 'flex';
-    }
+      for (let i = iniciotIndex; i < fimIndex; i++) {
+        galleries[i].style.display = 'flex';
+      }
 
-    // Atualizar o texto do botão 
-    if (fimIndex >= galleries.length) {
-      this.textContent = 'Clique para Esconder';
+      // Atualizar o texto do botão 
+      if (fimIndex >= galleries.length) {
+        this.textContent = 'Clique para Esconder';
+      }
+    } else {
+      // Esconder itens
+      for (let i = 0; i < galleries.length; i++) {
+        galleries[i].style.display = 'none';
+      }
+      this.textContent = 'Clique para Mostrar Mais';
     }
-  } else {
-    // Esconder itens
-    for (let i = 0; i < galleries.length; i++) {
-      galleries[i].style.display = 'none';
-    }
-    this.textContent = 'Clique para Mostrar Mais';
-  }
+  });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const moreToggle = document.querySelector('.moreToggle');
+  const moreGallerie = document.querySelectorAll('.more-gallerie');
+
+  // Inicialmente, oculta todos os elementos
+  moreGallerie.forEach(element => {
+    element.style.display = 'none';
+  });
+
+  let currentIndex = 0;
+  const itemsToShow = 1;
+  let allShown = false;
+
+  moreToggle.addEventListener('click', function() {
+    if (!allShown) {
+      // Mostrar os próximos itens
+      const endIndex = Math.min(currentIndex + itemsToShow, moreGallerie.length);
+
+      for (let i = currentIndex; i < endIndex; i++) {
+        moreGallerie[i].style.display = 'flex'; // Torna os elementos visíveis
+      }
+
+      currentIndex = endIndex;
+
+      // Verifica se todos os itens foram mostrados
+      if (currentIndex >= moreGallerie.length) {
+        moreToggle.textContent = 'Clique para Esconder';
+        allShown = true;
+      }
+    } else {
+      // Esconder todos os itens
+      moreGallerie.forEach(element => {
+        element.style.display = 'none';
+      });
+
+      currentIndex = 0;
+      moreToggle.textContent = 'Clique para Mostrar Mais';
+      allShown = false;
+    }
+  });
+});
+
+
+// Function esconder boxes trilha
+
+document.querySelectorAll('.trilha-link').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+      event.preventDefault();
+      
+      // Esconde todas as trilhas
+      document.querySelectorAll('.bg-box-trilha').forEach(function(trilha) {
+          trilha.classList.remove('active');
+      });
+
+      // Exibe a trilha correspondente
+      const target = link.getAttribute('data-target');
+      document.getElementById(target).classList.add('active');
+      
+      // Rola a página para o topo
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth' // Adiciona um efeito suave ao rolar
+      });
+  });
+});
+
+
+
+
+
 
 
 

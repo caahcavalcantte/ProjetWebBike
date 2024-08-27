@@ -169,9 +169,10 @@ body{
  h1{
   position: relative;
   padding-bottom: 10px;
+  border-bottom: 1px solid var(--detalhe-color);
 }
 
-.container-navegacao a::after,  h1::after{
+.container-navegacao a::after,  .card-mais a::after, .btn-info a::after, #btn-galeria a::after, #btn-trilhas a::after{
   content: "";
   position: absolute;
   bottom: 0;
@@ -182,7 +183,7 @@ body{
   transition: width 0.3s ease;
 }
 
-.container-navegacao a:hover::after, h1:hover::after{
+.container-navegacao a:hover::after, .card-mais a:hover::after, .btn-info a:hover::after, #btn-galeria a:hover::after, #btn-trilhas a:hover::after{
   width: 100%;
 }
 
@@ -228,29 +229,26 @@ body{
 
 .bg-info{
   flex: 2 0 175px;
-  position: relative;
+  /* position: relative; */
 }
 
 .btn-info{
  display: flex;
 }
 
-.btn-info a, .btn-passeios a, #btn-trilhas a , #btn-trilhas-mobile a{
-  padding: 5px 20px;
-  color: var(--secundaria-color);
-  background-color: var(--button-color);
-  border-radius: 5px;
-  font-weight: 600;
-  font-family: var(--font-primary);
-  transition: 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.btn-info img{
+  margin-left: 10px;
 }
 
-.btn-info a:hover, .btn-passeios a:hover, #btn-trilhas a:hover , #btn-trilhas-mobile a:hover{
+.btn-info a, .btn-passeios a, #btn-trilhas a , #btn-trilhas-mobile a, .card-mais a, #btn-galeria a{
+  padding: 5px 0;
   color: var(--button-color);
-  background-color: var(--secundaria-color);
-  
+  font-weight: 600;
+  font-family: var(--font-primary);
+  text-align: left;
 }
+
+
 
 
 
@@ -415,8 +413,14 @@ body{
 }
 
 
-#btn-galeria{
-  display: flex;
+#btn-galeria a{
+  display: inline-flex;
+  align-items: center;
+}
+
+#btn-galeria img{
+  width: 12px;
+  margin-left: 10px;
 }
 
 .passeios-itens{
@@ -436,10 +440,11 @@ body{
 .info-passeios{
   display: flex;
   box-sizing: border-box;
+  background-color: var(--secundaria-color);
+  
 }
 
 .color{
-  /* background-color: var(--secundaria-color); */
   border-radius: 5px;
 }
 
@@ -583,11 +588,14 @@ padding: var(--container-padding);
 background-color: var(--secundaria-color);
 }
 
-.box-trilha{
+.box-trilha, #box-trilha{
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--primaria-color);
   border-radius: 5px;
+}
+
+.box-trilha{
+  background-color: var(--primaria-color);
 }
 
 .info-trilhas{
@@ -596,7 +604,7 @@ background-color: var(--secundaria-color);
   padding: 20px;  
 }
 
-.info-trilhas h3 {
+.info-trilhas h3, .card-info h3 {
   font-size: 18px;
   font-style: normal;
   color: var(--texto-color-span);
@@ -645,11 +653,14 @@ background-color: var(--secundaria-color);
   gap: 10px;
 }
 
-.imagens-trilhas{
+.imagens-trilhas, #imagens-trilhas{
   flex: 1 0 200px;
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+}
+
+.imagens-trilhas{
   background-color: var(--primaria-color);
 }
 
@@ -689,6 +700,10 @@ background-color: var(--secundaria-color);
   display: flex;
 }
 
+#btn-trilhas img{
+ margin-left: 10px;
+}
+
 .btn-trilha-none{
   display: none;
 }
@@ -697,7 +712,11 @@ background-color: var(--secundaria-color);
   display: none;
 }
 
-.btn-toggle{
+.more-gallerie{
+  display: none;
+}
+
+.btn-toggle,.toggleMore, .moreToggle{
   background-color: var(--secundaria-color);
   border: none;
   color: var(--texto-color);
@@ -718,6 +737,14 @@ background-color: var(--secundaria-color);
 
 .bg-box-trilha{
   background-color: var(--secundaria-color);
+}
+
+.bg-box-trilha{
+  display: none;
+}
+
+.active{
+  display: block;
 }
 
 #galeria-trilhas h2{
@@ -885,7 +912,7 @@ background-color: var(--secundaria-color);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  grid-column: 1/2;
+  grid-column: 1/3;
   grid-row: 3;
 }
 
@@ -923,6 +950,81 @@ background-color: var(--secundaria-color);
   top: 50%;
   transform: translateY(-50%); 
 }
+
+#box-trilha, #imagens-trilhas{
+  background-color: var(--secundaria-color);
+}
+
+.gallery-trilha{
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: auto;
+  white-space: nowrap;
+  padding-bottom: 20px;
+}
+
+.container-cards{
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}
+
+.cards-trilha{
+  flex: 1 0 250px;
+  background-color: var(--secundaria-color);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.cards-icons{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center ;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.card-info{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-descricao{
+  padding: 10px 0;
+  height: 200px;
+}
+
+.card-descricao p {
+  margin: 0;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.4; 
+  height: auto;
+}
+
+.card-mais{
+  padding: 20px 0;
+}
+
+.card-mais a, .btn-info a, #btn-galeria a, #btn-trilhas a{
+  position: relative;
+}
+
+.card-mais img{
+  margin-left: 10px;
+}
+
+
+.cards-img img{
+  width: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
 
 
 
@@ -1068,6 +1170,26 @@ background-color: var(--secundaria-color);
   display: none;
 }
 
+.box-trilha, #box-trilha{
+  flex-direction: column;  
+ } 
+
+ #btn-trilhas{
+  display: none;
+}
+
+.btn-trilha-none{
+  display: flex;
+  padding: 20px;
+  justify-content: flex-end;
+}
+
+.btn-trilha-none a{
+  width: 100%;
+  text-align: center;
+  
+}
+
 
 /* Container Passeio Mobile */
 
@@ -1110,6 +1232,7 @@ background-color: var(--secundaria-color);
   background-color: var(--primaria-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* Fim Container Passeio Mobile  */
 
@@ -1165,7 +1288,7 @@ background-color: var(--secundaria-color);
 }
 
 .ultimo-post{
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 
@@ -1184,11 +1307,11 @@ background-color: var(--secundaria-color);
 
 #galeria-trilhas{
   grid-template-columns: 1fr;
-  gap: 20px;
+  
 }
 
 .galeria-metricas{
-  padding: 10px 0 0;
+  padding: 30px 0 0;
   grid-column: 1/1;
   grid-row: 2 ;
 }
@@ -1256,9 +1379,7 @@ background-color: var(--secundaria-color);
     display: none;
   }
 
-  .box-trilha{
-   flex-direction: column;  
-  } 
+  
 
   .metrica-trilha{
     flex: 1 0 30%;
@@ -1274,23 +1395,6 @@ background-color: var(--secundaria-color);
 
   .img-destaque-trilha , .img-destaque-trilha img{
     border-bottom-left-radius: 0px;
-  }
-
-  #btn-trilhas{
-    display: none;
-  }
-
-
-  .btn-trilha-none{
-    display: flex;
-    padding: 20px;
-    justify-content: flex-end;
-  }
-
-  .btn-trilha-none a{
-    width: 100%;
-    text-align: center;
-    
   }
 
   .galeria-img-trilhas{
@@ -1316,7 +1420,7 @@ background-color: var(--secundaria-color);
 }
 
 
-@media (max-width:346px) {
+@media (max-width:359px) {
 
 .galeria-img-trilha{
   display: none;
@@ -1326,7 +1430,7 @@ background-color: var(--secundaria-color);
 }
 
 .info-resultados{
-  gap: 20px;
+  gap: 10px;
 }
 
 }
