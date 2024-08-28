@@ -248,10 +248,6 @@ body{
   text-align: left;
 }
 
-
-
-
-
 .bg-images{
   flex: 3 0 175px;
   position: relative;
@@ -270,30 +266,25 @@ body{
 .next-img {
   position: absolute;
   gap: 5px;
-  right:20px ;
-  bottom: 38%;
+  right:0;
+  /* bottom: 38%; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  top: 54%;
+  transform: translateY(-50%);
 }
 
 .next-btn-up, .next-btn-down{
   background-color: var(--texto-color);
-  padding: 5px;
-  margin: 5px;
-  display: block;
-  align-content: center;
-  border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.next-btn-up:hover, .next-btn-down:hover{
+.next-btn-up:hover, .next-btn-down:hover, .nav-arrow:hover, .nav-seta:hover{
   background-color: var(--secundaria-color);
   transition: 0.5s;
 }
 
-.next-btn-up img, .next-btn-down img{
-  padding-top: 4px;
-}
 
 
 /* Div Estatiísticas */
@@ -926,10 +917,7 @@ background-color: var(--secundaria-color);
 }
 
 .lista-trilha ul{
-  /* background-color: var(--primaria-color); */
   line-height: 1.5;
-  /* padding: 20px; */
-  /* border-radius: 5px; */
 }
 
 .lista-trilha li{
@@ -956,21 +944,26 @@ background-color: var(--secundaria-color);
 }
 
 .gallery-trilha{
-  overflow-x: auto;
+  position: relative;
   overflow-y: hidden;
-  height: auto;
-  white-space: nowrap;
-  padding-bottom: 20px;
+  width: 100%;
 }
 
 .container-cards{
-  display: inline-flex;
+  display: flex;
   flex-wrap: nowrap;
   gap: 20px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
 }
 
 .cards-trilha{
-  flex: 1 0 250px;
+  flex: 0 0 auto;
+  width: 250px;
   background-color: var(--secundaria-color);
   border-radius: 5px;
   padding: 20px;
@@ -1021,12 +1014,77 @@ background-color: var(--secundaria-color);
   object-fit: cover;
 }
 
+/* Galeria Imagens */
+.container-galeria{
+  padding: var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: auto;
+}
+
+.box-galeria{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.galeria-scroll::-webkit-scrollbar, .container-cards::-webkit-scrollbar { 
+  display: none;
+}
+
+.galeria-scroll{
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+.galeria-imagem{
+  flex: 0 0 auto;
+}
+
+.galeria-imagem img{
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 5px;
+}
 
 
+/* Setas de navegação */
+.nav-arrow, .nav-seta, .next-btn-up, .next-btn-down {
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--texto-color);
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
 
+.nav-arrow, .nav-seta {
+  position: absolute;
+}
 
+.nav-arrow-left, .seta-esquerda {
+  left: 0;
+}
 
-
+.nav-arrow-right, .seta-direita {
+  right: 0;
+}
 
 
 
@@ -1092,7 +1150,7 @@ background-color: var(--secundaria-color);
     padding-top: 0;
   }
 
-  .background, .container-sobre , .container-passeios, .container-trilhas{
+  .background, .container-sobre , .container-passeios, .container-trilhas, .container-galeria{
     flex-direction: column;
     padding: var(--container-padding-mobile);
   }
@@ -1186,8 +1244,11 @@ background-color: var(--secundaria-color);
 
 .btn-trilha-none a{
   width: 100%;
-  text-align: center;
-  
+  text-align: center; 
+}
+
+.btn-trilha-none img{
+  margin-left: 8px;
 }
 
 
@@ -1328,7 +1389,16 @@ background-color: var(--secundaria-color);
 .lista-trilha{
   grid-row: 4;
 }
-  
+
+/* Galeria */
+.galeria-imagem {
+  width: calc(100% / 2); 
+} 
+
+.galeria-scroll{
+  padding: 20px 0 0;
+}
+
 }
 
 
@@ -1352,12 +1422,18 @@ background-color: var(--secundaria-color);
   }
 
   .next-img {
-    right:15px ;
-    bottom: 28%;
+    top:60%;
   }
 
-  .next-btn-down, .next-btn-up{
-    margin: 0;
+  .next-btn-up, .next-btn-down {
+    background: none;
+    box-shadow: none;
+    color: var(--button-color);
+  }
+
+  .next-btn-up:hover, .next-btn-down:hover{
+    background: none;
+    transition: 0.5s;
   }
 
   .info-trilhas, .descricao-trilhas{
@@ -1415,6 +1491,10 @@ background-color: var(--secundaria-color);
 
   .galeria-info-trilha{
     gap: 30px;
+  }
+
+  .galeria-imagem {
+    width: calc(100%); 
   }
   
 }

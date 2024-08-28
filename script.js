@@ -260,15 +260,57 @@ document.querySelectorAll('.trilha-link').forEach(function(link) {
 });
 
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Configuração das galerias
+  const galerias = [
+      {
+          esquerda: '.nav-arrow-left',   // Classe da seta esquerda para a primeira galeria
+          direita: '.nav-arrow-right',   // Classe da seta direita para a primeira galeria
+          container: '.galeria-scroll',  // Classe do contêiner da primeira galeria
+          quantidadeRolagem: 200         // Quantidade de rolagem para a primeira galeria
+      },
+      {
+          esquerda: '.seta-esquerda',    // Classe da seta esquerda para a segunda galeria
+          direita: '.seta-direita',      // Classe da seta direita para a segunda galeria
+          container: '.container-cards', // Classe do contêiner da segunda galeria
+          quantidadeRolagem: 200         // Quantidade de rolagem para a segunda galeria
+      }
+  ];
 
+  // Função para rolar a galeria
+  function configurarGaleria(galeria) {
+      const setaEsquerda = document.querySelector(galeria.esquerda);
+      const setaDireita = document.querySelector(galeria.direita);
+      const container = document.querySelector(galeria.container);
 
+      if (setaEsquerda && setaDireita && container) {
+          function rolarGaleria(direcao) {
+              if (direcao === 'esquerda') {
+                  container.scrollBy({ left: -galeria.quantidadeRolagem, behavior: 'smooth' });
+              } else if (direcao === 'direita') {
+                  container.scrollBy({ left: galeria.quantidadeRolagem, behavior: 'smooth' });
+              }
+          }
 
+          setaEsquerda.addEventListener('click', () => rolarGaleria('esquerda'));
+          setaDireita.addEventListener('click', () => rolarGaleria('direita'));
 
+          container.addEventListener('scroll', () => {
+              const rolagemEsquerda = container.scrollLeft;
+              const larguraRolagem = container.scrollWidth;
+              const larguraVisivel = container.clientWidth;
 
+              setaEsquerda.style.display = rolagemEsquerda > 0 ? 'block' : 'none';
+              setaDireita.style.display = rolagemEsquerda < larguraRolagem - larguraVisivel ? 'block' : 'none';
+          });
 
+          container.dispatchEvent(new Event('scroll'));
+      } else {
+          console.error('Um ou mais elementos não foram encontrados.');
+      }
+  }
 
-
-
-
-
+  // Configura ambas as galerias
+  galerias.forEach(configurarGaleria);
+});
 
