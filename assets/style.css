@@ -172,7 +172,7 @@ body{
   border-bottom: 1px solid var(--detalhe-color);
 }
 
-.container-navegacao a::after,  .card-mais a::after, .btn-info a::after, #btn-galeria a::after, #btn-trilhas a::after{
+.container-navegacao a::after,  .card-mais a::after, .btn-info a::after, #btn-galeria a::after, #btn-trilhas a::after, .container-galeria a::after{
   content: "";
   position: absolute;
   bottom: 0;
@@ -183,7 +183,7 @@ body{
   transition: width 0.3s ease;
 }
 
-.container-navegacao a:hover::after, .card-mais a:hover::after, .btn-info a:hover::after, #btn-galeria a:hover::after, #btn-trilhas a:hover::after{
+.container-navegacao a:hover::after, .card-mais a:hover::after, .btn-info a:hover::after, #btn-galeria a:hover::after, #btn-trilhas a:hover::after, .container-galeria a:hover::after{
   width: 100%;
 }
 
@@ -240,7 +240,7 @@ body{
   margin-left: 10px;
 }
 
-.btn-info a, .btn-passeios a, #btn-trilhas a , #btn-trilhas-mobile a, .card-mais a, #btn-galeria a{
+.btn-info a, .btn-passeios a, #btn-trilhas a , #btn-trilhas-mobile a, .card-mais a, #btn-galeria a, .container-galeria a{
   padding: 5px 0;
   color: var(--button-color);
   font-weight: 600;
@@ -280,10 +280,7 @@ body{
   background-color: var(--texto-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.next-btn-up:hover, .next-btn-down:hover, .nav-arrow:hover, .nav-seta:hover{
-  background-color: var(--secundaria-color);
-  transition: 0.5s;
-}
+
 
 
 
@@ -1022,6 +1019,13 @@ background-color: var(--secundaria-color);
   gap: 20px;
   height: auto;
 }
+.container-galeria a{
+  position: relative;
+}
+
+.container-galeria a>img{
+  margin-left: 10px;
+}
 
 .box-galeria{
   position: relative;
@@ -1062,7 +1066,7 @@ background-color: var(--secundaria-color);
   top: 50%;
   transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
-  color: var(--texto-color);
+  color: var(--button-color);
   border: none;
   cursor: pointer;
   z-index: 10;
@@ -1417,7 +1421,7 @@ background-color: var(--secundaria-color);
     width: 20px;
   }
    
-  .bg-info h1, .sobre-info h1, .container-passeios h1, .container-trilhas h1{
+  .bg-info h1, .sobre-info h1, .container-passeios h1, .container-trilhas h1, .container-galeria h1{
     font-size: var(--font-titulos-small-mobile);
   }
 
