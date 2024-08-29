@@ -589,7 +589,7 @@ background-color: var(--secundaria-color);
 .info-trilhas{
   flex: 3 0 200px;
   gap: 20px;
-  padding: 20px;  
+  padding: 20px; 
 }
 
 .info-trilhas h3, .card-info h3 {
@@ -641,7 +641,7 @@ background-color: var(--secundaria-color);
   gap: 10px;
 }
 
-.imagens-trilhas, #imagens-trilhas{
+.imagens-trilhas, #imagens-trilhas {
   flex: 1 0 200px;
   display: flex;
   flex-wrap: wrap;
@@ -662,7 +662,7 @@ background-color: var(--secundaria-color);
   object-fit: cover;
 }
 
-.galeria-trilha{
+.galeria-trilha, .imagens-pg-trilha{
   flex: 1 0 70px;
   display: flex;
   flex-direction: column;
@@ -671,7 +671,7 @@ background-color: var(--secundaria-color);
 }
 
 
-.galeria-trilha img{
+.galeria-trilha img,.imagens-pg-trilha img{
   object-fit: cover;
   height: 100%;
 }
@@ -725,6 +725,7 @@ background-color: var(--secundaria-color);
 
 .bg-box-trilha{
   background-color: var(--secundaria-color);
+  border-radius: 5px; 
 }
 
 .bg-box-trilha{
@@ -769,8 +770,9 @@ background-color: var(--secundaria-color);
   border: 0;
 }
 
-.galeria-img-trilhas{
+.galeria-img-trilhas {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
   height: auto;
 }
@@ -780,15 +782,15 @@ background-color: var(--secundaria-color);
   flex: 2 0 100px;
 }
 
-.imagens-trilhas{
+.imagens-pg-trilha {
   flex: 1 0 100px;
 }
 
-.imagens-trilhas div{
+.imagens-pg-trilha div{
   height: 100%;
 }
 
-.imagens-trilhas img, .trilhas-img-destaque img{
+.trilhas-img-destaque img{
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1524,6 +1526,7 @@ background-color: var(--secundaria-color);
     border-bottom-left-radius: 0px;
   }
 
+  
   .galeria-img-trilhas{
     display: flex;
   }
