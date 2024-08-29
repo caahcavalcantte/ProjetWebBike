@@ -259,7 +259,7 @@ document.querySelectorAll('.trilha-link').forEach(function(link) {
   });
 });
 
-
+// Função barra de rolamento
 document.addEventListener('DOMContentLoaded', function () {
   // Configuração das galerias
   const galerias = [
@@ -314,3 +314,26 @@ document.addEventListener('DOMContentLoaded', function () {
   galerias.forEach(configurarGaleria);
 });
 
+
+// Função Abertura de imagem tela cheia com btn para fechameto
+document.addEventListener('DOMContentLoaded', function () {
+  const images = document.querySelectorAll('.galeria-imagem img');
+  const fullscreenView = document.getElementById('fullscreen-view');
+  const fullscreenImg = document.getElementById('fullscreen-img');
+  const closeBtn = document.getElementById('close-btn');
+
+  images.forEach(image => {
+      image.addEventListener('click', function () {
+          fullscreenImg.src = this.src;
+          fullscreenView.classList.remove('hidden');
+          fullscreenView.classList.add('show');
+      });
+  });
+
+  closeBtn.addEventListener('click', function () {
+      fullscreenView.classList.remove('show');
+      setTimeout(() => {
+          fullscreenView.classList.add('hidden');
+      }, 300); //  transição de opacidade
+  });
+});
