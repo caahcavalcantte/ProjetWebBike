@@ -316,24 +316,39 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Função Abertura de imagem tela cheia com btn para fechameto
+
 document.addEventListener('DOMContentLoaded', function () {
-  const images = document.querySelectorAll('.galeria-imagem img');
-  const fullscreenView = document.getElementById('fullscreen-view');
-  const fullscreenImg = document.getElementById('fullscreen-img');
-  const closeBtn = document.getElementById('close-btn');
 
-  images.forEach(image => {
-      image.addEventListener('click', function () {
-          fullscreenImg.src = this.src;
-          fullscreenView.classList.remove('hidden');
-          fullscreenView.classList.add('show');
+  function setupFullscreenGallery(containerSelector, imgSelector, fullscreenViewId, fullscreenImgId, closeBtnId) {
+      const container = document.querySelector(containerSelector);
+      const images = container.querySelectorAll(imgSelector);
+      const fullscreenView = document.getElementById(fullscreenViewId);
+      const fullscreenImg = document.getElementById(fullscreenImgId);
+      const closeBtn = document.getElementById(closeBtnId);
+
+      images.forEach(image => {
+          image.addEventListener('click', function () {
+              fullscreenImg.src = this.src;
+              fullscreenView.classList.remove('hidden');
+              fullscreenView.classList.add('show');
+          });
       });
-  });
 
-  closeBtn.addEventListener('click', function () {
-      fullscreenView.classList.remove('show');
-      setTimeout(() => {
-          fullscreenView.classList.add('hidden');
-      }, 300); //  transição de opacidade
-  });
+      closeBtn.addEventListener('click', function () {
+          fullscreenView.classList.remove('show');
+          setTimeout(() => {
+              fullscreenView.classList.add('hidden');
+          }, 300);
+      });
+  }
+
+  // Primeira galeria
+  setupFullscreenGallery('.galeria-scroll', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
+
+  // Segunda galeria 
+  setupFullscreenGallery('.passeios', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
+
+  // Terceira galeria 
+
+  
 });

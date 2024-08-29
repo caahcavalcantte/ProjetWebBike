@@ -784,6 +784,10 @@ background-color: var(--secundaria-color);
   flex: 1 0 100px;
 }
 
+.imagens-trilhas div{
+  height: 100%;
+}
+
 .imagens-trilhas img, .trilhas-img-destaque img{
   width: 100%;
   height: 100%;
@@ -1092,7 +1096,6 @@ background-color: var(--secundaria-color);
 }
 
 /*Página Galeria*/
-
 /*fullscreen */
 #fullscreen-view {
   position: fixed;
@@ -1522,8 +1525,9 @@ background-color: var(--secundaria-color);
   }
 
   .galeria-img-trilhas{
-    flex-direction: column;
+    display: flex;
   }
+
 
   .imagens-trilhas{
     display: flex;
