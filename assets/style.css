@@ -628,7 +628,7 @@ background-color: var(--secundaria-color);
   padding: 20px 0;
 }
 
-.title-trilhas h2, .galeria-metricas h2, .ifp h2, .lista-trilha h2, .pdt h2, .box-galeria h3{
+.title-trilhas h2, .galeria-metricas h2, .ifp h2, .lista-trilha h2, .pdt h2, .container-galeria h2{
   font-family: var(--font-primary);
   font-style: normal;
   font-size: 18px;
@@ -1090,7 +1090,6 @@ background-color: var(--secundaria-color);
 
 .box-galeria h3{
   padding: 10px 0 0;
-  text-transform: uppercase;
 }
 
 .galeria-scroll::-webkit-scrollbar, .container-cards::-webkit-scrollbar { 
