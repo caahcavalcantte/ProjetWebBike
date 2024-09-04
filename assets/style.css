@@ -795,6 +795,22 @@ background-color: var(--secundaria-color);
   gap: 5px;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+
+.btn-pg-trilha{
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.btn-pg-trilha a{
+  display: flex;
+  color: var(--button-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgba(45, 50, 80, 0.9);
 }
 
 .btn-pg-galeria{
@@ -802,7 +818,7 @@ background-color: var(--secundaria-color);
 }
 
 
-.trilhas-img-destaque img, .imagens-pg-trilha img{
+.trilhas-img-destaque img, .imagens-pg-trilha img, .img-pg-trilha img{
   width: 100%;
   object-fit: cover;
   height: auto;
@@ -965,6 +981,10 @@ background-color: var(--secundaria-color);
   width: 100%;
 }
 
+.gallery-trilha h3{
+  padding-bottom: 20px;
+}
+
 
 .container-cards{
   display: flex;
@@ -1053,11 +1073,15 @@ background-color: var(--secundaria-color);
   width: 100%;
 }
 
+.box-galeria h3{
+  padding: 10px 0;
+}
+
 .galeria-scroll::-webkit-scrollbar, .container-cards::-webkit-scrollbar { 
   display: none;
 }
 
-.galeria-scroll{
+.galeria-scroll, .galeria-scroll-1{
   display: flex;
   gap: 20px;
   padding: 20px 0;
@@ -1103,11 +1127,11 @@ background-color: var(--secundaria-color);
   position: absolute;
 }
 
-.nav-arrow-left, .seta-esquerda {
+.nav-arrow-left, .seta-esquerda, .nav-arrow-left-1 {
   left: 0;
 }
 
-.nav-arrow-right, .seta-direita {
+.nav-arrow-right, .seta-direita, .nav-arrow-right-1 {
   right: 0;
 }
 
@@ -1155,7 +1179,6 @@ background-color: var(--secundaria-color);
 
 /* footer */
 .footer-botton{
-  /* background-color: var(--primaria-color); */
   padding: var(--container-padding-nav);
   justify-content: space-between;
 }
@@ -1171,6 +1194,7 @@ background-color: var(--secundaria-color);
 }
 
 .nav-footer a{
+  display: block;
   position: relative;
   color: var(--texto-color);
   padding: 10px 5px;
@@ -1514,7 +1538,7 @@ background-color: var(--secundaria-color);
   width: calc(100% / 2); 
 } 
 
-.galeria-scroll{
+.galeria-scroll, .galeria-scroll-1{
   padding: 10px 0 0;
 }
 
@@ -1606,6 +1630,10 @@ background-color: var(--secundaria-color);
 
   .imagens-trilhas div{
     flex: 1;
+  }
+
+  .btn-pg-trilha a{
+    font-size: 12px;
   }
 
   .lista-trilha h2{

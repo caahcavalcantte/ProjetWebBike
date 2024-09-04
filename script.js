@@ -259,6 +259,15 @@ document.querySelectorAll('.trilha-link').forEach(function(link) {
   });
 });
 
+
+// Tornar a trilha-1 visível ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+  showTrilha('trilha-1');
+});
+
+
+
+
 // Função barra de rolamento
 document.addEventListener('DOMContentLoaded', function () {
   // Configuração das galerias
@@ -270,11 +279,17 @@ document.addEventListener('DOMContentLoaded', function () {
           quantidadeRolagem: 200         // Quantidade de rolagem para a primeira galeria
       },
       {
+          esquerda: '.nav-arrow-left-1',   // Classe da seta esquerda para a primeira galeria
+          direita: '.nav-arrow-right-1',   // Classe da seta direita para a primeira galeria
+          container: '.galeria-scroll-1',  // Classe do contêiner da primeira galeria
+          quantidadeRolagem: 200         // Quantidade de rolagem para a primeira galeria
+      },
+      {
           esquerda: '.seta-esquerda',    // Classe da seta esquerda para a segunda galeria
           direita: '.seta-direita',      // Classe da seta direita para a segunda galeria
           container: '.container-cards', // Classe do contêiner da segunda galeria
           quantidadeRolagem: 200         // Quantidade de rolagem para a segunda galeria
-      }
+      },
   ];
 
   // Função para rolar a galeria
@@ -316,11 +331,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 // Função Abertura de imagem tela cheia com btn para fechameto
-
 document.addEventListener('DOMContentLoaded', function () {
 
   function setupFullscreenGallery(containerSelector, imgSelector, fullscreenViewId, fullscreenImgId, closeBtnId) {
       const container = document.querySelector(containerSelector);
+      if (!container) return; 
       const images = container.querySelectorAll(imgSelector);
       const fullscreenView = document.getElementById(fullscreenViewId);
       const fullscreenImg = document.getElementById(fullscreenImgId);
@@ -345,13 +360,13 @@ document.addEventListener('DOMContentLoaded', function () {
   // Primeira galeria
   setupFullscreenGallery('.galeria-scroll', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
 
-  // Segunda galeria 
+  // Segunda galeria
+  setupFullscreenGallery('.galeria-scroll-1', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
+
   setupFullscreenGallery('.passeios', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
-
-  // Terceira galeria 
-
   
 });
+
 
 
 
