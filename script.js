@@ -11,52 +11,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// Redes Sociais evento
+document.addEventListener('DOMContentLoaded', function() {
+  // Função genérica para aplicar o efeito hover em várias imagens
+  function addHoverEffect(imgElement, originalSrc, hoverSrc) {
+      imgElement.addEventListener('mouseover', function() {
+          this.src = hoverSrc;
+      });
 
-// instagram
-const imagem = document.querySelector('.rede-insta img');
+      imgElement.addEventListener('mouseout', function() {
+          this.src = originalSrc;
+      });
+  }
 
-const svgOriginal = 'images/square-instagram-brands-solid (2).svg';
-const svgHover = 'images/square-instagram-brands-solid (3).svg';
+  // Seleciona todas as imagens principais e do rodapé para o Instagram
+  const imagemInsta = document.querySelector('.rede-insta img');
+  if (imagemInsta) {
+      addHoverEffect(imagemInsta, 'images/square-instagram-brands-solid (2).svg', 'images/square-instagram-brands-solid (3).svg');
+  }
 
+  const imagemInstaFooter = document.querySelector('.rede-insta-footer img');
+  if (imagemInstaFooter) {
+      addHoverEffect(imagemInstaFooter, 'images/square-instagram-brands-solid (2).svg', 'images/square-instagram-brands-solid (3).svg');
+  }
 
-imagem.addEventListener('mouseover', function(){
-    this.src = svgHover;
+  // Seleciona todas as imagens principais e do rodapé para o Facebook
+  const imagemFace = document.querySelector('.rede-face img');
+  if (imagemFace) {
+      addHoverEffect(imagemFace, 'images/square-facebook-brands-solid (2).svg', 'images/square-facebook-brands-solid (3).svg');
+  }
+
+  const imagemFaceFooter = document.querySelector('.rede-face-footer img');
+  if (imagemFaceFooter) {
+      addHoverEffect(imagemFaceFooter, 'images/square-facebook-brands-solid (2).svg', 'images/square-facebook-brands-solid (3).svg');
+  }
+
+  // Seleciona todas as imagens principais e do rodapé para o GitHub
+  const imagemGit = document.querySelector('.rede-github img');
+  if (imagemGit) {
+      addHoverEffect(imagemGit, 'images/square-github-brands-solid.svg', 'images/square-github-brands-solid (1).svg');
+  }
+
+  const imagemGitFooter = document.querySelector('.rede-github-footer img');
+  if (imagemGitFooter) {
+      addHoverEffect(imagemGitFooter, 'images/square-github-brands-solid.svg', 'images/square-github-brands-solid (1).svg');
+  }
 });
 
-imagem.addEventListener('mouseout', function(){
-    this.src = svgOriginal;
-});
 
-// facebook
-const imagemFace = document.querySelector('.rede-face img');
-
-const svgOriginalFace = 'images/square-facebook-brands-solid (2).svg';
-const svgHoverFace = 'images/square-facebook-brands-solid (3).svg';
-
-
-imagemFace.addEventListener('mouseover', function(){
-    this.src = svgHoverFace;
-});
-
-imagemFace.addEventListener('mouseout', function(){
-    this.src = svgOriginalFace;
-});
-
-
-// whatsapp
-const imagemGit = document.querySelector('.rede-github img');
-
-const svgOriginalGit = 'images/square-github-brands-solid.svg';
-const svgHoverGit = 'images/square-github-brands-solid (1).svg';
-
-imagemGit.addEventListener('mouseover', function() {
-    this.src = svgHoverGit;
-});
-
-imagemGit.addEventListener('mouseout', function() {
-    this.src = svgOriginalGit
-});
 
 // Curtir trilha
 const imagemCurtir = document.querySelectorAll('.curtir-trilha img');
@@ -90,42 +91,32 @@ imagemCurtir.addEventListener('click', function() {
 
 
 // Background Srcrool Imagem
+document.addEventListener('DOMContentLoaded', function() {
+  const images = [
+      'images/imagem (41).jpg',
+      'images/imagem (36).jpg',
+      'images/imagem (1).jpg',
+      'images/imagem (11).jpg',
+  ];
 
-document.addEventListener('DOMContentLoaded', function(){
-    const images =[
-        'images/imagem(1).jpg',
-        'images/imagem(2).jpg',
-        'images/imagem(3).jpg',
-        
-    ];
+  let currentIndex = 0;
+  const imgElement = document.querySelector('.bg-images .current-img');
 
-    let currentIndex = 0;
-    const imgElement = document.querySelector('.bg-images .current-img');
+  function showImage(index) {
+      imgElement.src = images[index]; 
+  }
 
-    function showImage(index) {
-        imgElement.src = images[index]; 
-      }
-
-      document.querySelector('.next-btn-up').addEventListener('click', function (event) {
-        event.preventDefault(); 
-        currentIndex = (currentIndex - 1 + images.length) % images.length; 
-        showImage(currentIndex);
-      });
-    
-      document.querySelector('.next-btn-down').addEventListener('click', function (event) {
-        event.preventDefault(); 
-        currentIndex = (currentIndex + 1) % images.length; 
-        showImage(currentIndex);
-      });
-    
-      // Inicializa com a primeira imagem
+  function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
       showImage(currentIndex);
+  }
 
+  setInterval(nextImage, 3000); // Muda a imagem a cada 3 segundos
+
+  showImage(currentIndex); // Inicializa com a primeira imagem
 });
 
-
 // Função Ativar e Esconder Postagens
-
 function showPost(type) {
   // Seleciona posts e botões para o container de posts móveis
   const postsMobile = document.querySelectorAll('.info-post-mobile');
@@ -162,7 +153,6 @@ function showPost(type) {
 
 
 // Function esconder Galeria
-
 document.querySelectorAll('.toggleMore').forEach(button => {
   button.addEventListener('click', function() {
     const galleries = this.closest('.bg-box-trilha').querySelectorAll('.more-galleries');
@@ -237,7 +227,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 // Function esconder boxes trilha
-
 document.querySelectorAll('.trilha-link').forEach(function(link) {
   link.addEventListener('click', function(event) {
       event.preventDefault();

@@ -103,12 +103,19 @@ body{
   color: var(--button-color);
 }
 
-.redes-sociais{
-  justify-content: flex-end;
+.redes-sociais, .footer{
   align-items: center;
   display: flex;
   gap: 10px;
   margin-top: 3px;
+}
+
+.redes-sociais{
+  justify-content: flex-end;
+}
+
+.footer{
+  justify-content: center;
 }
 
 /* Navegacao */
@@ -621,10 +628,14 @@ background-color: var(--secundaria-color);
   padding: 20px 0;
 }
 
-.title-trilhas h2, .galeria-metricas, h2{
+.title-trilhas h2, .galeria-metricas h2, .ifp h2, .lista-trilha h2, .pdt h2, .box-galeria h3{
   font-family: var(--font-primary);
   font-style: normal;
   font-size: 18px;
+}
+
+.title-trilhas h2 {
+  padding-bottom: 0;
 }
 
 .box-descrica-trilhas{
@@ -982,7 +993,7 @@ background-color: var(--secundaria-color);
 }
 
 .gallery-trilha h3{
-  padding-bottom: 20px;
+  padding: 10px 0 20px;
 }
 
 
@@ -1018,6 +1029,10 @@ background-color: var(--secundaria-color);
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.card-info h3 {
+  padding-bottom: 0;
 }
 
 .card-descricao{
@@ -1074,7 +1089,8 @@ background-color: var(--secundaria-color);
 }
 
 .box-galeria h3{
-  padding: 10px 0;
+  padding: 10px 0 0;
+  text-transform: uppercase;
 }
 
 .galeria-scroll::-webkit-scrollbar, .container-cards::-webkit-scrollbar { 
@@ -1197,7 +1213,7 @@ background-color: var(--secundaria-color);
   display: block;
   position: relative;
   color: var(--texto-color);
-  padding: 10px 5px;
+  padding: 10px 5px 5px;
   font-size: 14px;
   font-weight: bold;
 }
@@ -1412,6 +1428,10 @@ background-color: var(--secundaria-color);
   gap: 20px;
 }
 
+.detalhe-passeio-mobile-img{
+  background-color: var(--primaria-color);
+}
+
 .detalhe-passeio-mobile{
   flex: 1 0 auto;
   width: 270px;
@@ -1424,6 +1444,7 @@ background-color: var(--secundaria-color);
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 }
 
 .descricao-passeio-mobile{
@@ -1537,6 +1558,18 @@ background-color: var(--secundaria-color);
 .galeria-imagem {
   width: calc(100% / 2); 
 } 
+
+.title-trilhas h2 {
+  padding-bottom: 0;
+}
+
+.lista-trilha h2 {
+  padding: 20px 0 10px;
+}
+
+.ifp h2 {
+  padding-top: 20px;
+}
 
 .galeria-scroll, .galeria-scroll-1{
   padding: 10px 0 0;
