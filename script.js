@@ -91,30 +91,67 @@ imagemCurtir.addEventListener('click', function() {
 
 
 // Background Srcrool Imagem
+// document.addEventListener('DOMContentLoaded', function() {
+//   const images = [
+//       'images/imagem (41).jpg',
+//       'images/imagem (36).jpg',
+//       'images/imagem (1).jpg',
+//       'images/imagem (11).jpg',
+//   ];
+
+//   let currentIndex = 0;
+//   const imgElement = document.querySelector('.bg-images .current-img');
+
+//   function showImage(index) {
+//       imgElement.src = images[index]; 
+//   }
+
+//   function nextImage() {
+//       currentIndex = (currentIndex + 1) % images.length;
+//       showImage(currentIndex);
+//   }
+
+//   setInterval(nextImage, 3000); // Muda a imagem a cada 3 segundos
+
+//   showImage(currentIndex); // Inicializa com a primeira imagem
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
-  const images = [
+  function autoImageSlider(selector, images, interval) {
+      let currentIndex = 0;
+      const imgElement = document.querySelector(selector);
+
+      function showImage(index) {
+          imgElement.src = images[index]; 
+      }
+
+      function nextImage() {
+          currentIndex = (currentIndex + 1) % images.length;
+          showImage(currentIndex);
+      }
+
+      setInterval(nextImage, interval); // Muda a imagem a cada intervalo definido
+
+      showImage(currentIndex); // Inicializa com a primeira imagem
+  }
+
+  // Aplicando a função a diferentes elementos com conjuntos de imagens diferentes
+  autoImageSlider('.bg-images .current-img', [
       'images/imagem (41).jpg',
       'images/imagem (36).jpg',
       'images/imagem (1).jpg',
-      'images/imagem (11).jpg',
-  ];
+      'images/imagem (11).jpg'
+  ], 3000);
 
-  let currentIndex = 0;
-  const imgElement = document.querySelector('.bg-images .current-img');
+  autoImageSlider('.passeios .img-current', [
+      'images/imagem (236).jpg',
+      'images/imagem (69).jpg',
+      'images/imagem (204).jpg'
+  ], 4000);
 
-  function showImage(index) {
-      imgElement.src = images[index]; 
-  }
-
-  function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
-      showImage(currentIndex);
-  }
-
-  setInterval(nextImage, 3000); // Muda a imagem a cada 3 segundos
-
-  showImage(currentIndex); // Inicializa com a primeira imagem
+  
 });
+
 
 // Função Ativar e Esconder Postagens
 function showPost(type) {
