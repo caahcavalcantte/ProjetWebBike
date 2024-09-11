@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ], 3000);
 
   autoImageSlider('.passeios .img-current', [
-      'images/imagem (236).jpg',
+      'images/006.jpg',
       'images/imagem (69).jpg',
       'images/imagem (204).jpg'
   ], 4000);

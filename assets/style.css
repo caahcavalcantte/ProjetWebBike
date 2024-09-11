@@ -371,10 +371,6 @@ body{
   gap: 20px;
 }
 
-.container-passeios h2, .container-trilhas h2{
-  padding-bottom: 20px;
-}
-
 .container-passeios span, .descricao-passeio span{
   font-size: var(--font-navegacao);
   color: var(--texto-color-span);
@@ -388,7 +384,7 @@ body{
 }
 
 .passeios{
- flex: 2 0 200px ;
+ flex: 2 0 350px ;
 }
 
 .container-posts{
@@ -1231,6 +1227,11 @@ background-color: var(--secundaria-color);
   color: var(--texto-color-span);
 }
 
+@media (max-width:1422px){
+  .info-passeios{
+    flex-direction: column;
+  }
+}
 
 
 @media (max-width:939px){
@@ -1322,7 +1323,7 @@ background-color: var(--secundaria-color);
 
   .bg-info{
     gap: 15px;
-    padding: 40px 20px;
+    padding: 30px 20px;
     order: 2;
   }
 
@@ -1363,10 +1364,6 @@ background-color: var(--secundaria-color);
 
   .sobre-info, .container-passeios, #passeios{
     gap: 15px;
-  }
-
-  .container-passeios h2, .container-trilhas h2{
-    padding-bottom: 20px;
   }
 
   .box-passeios{
