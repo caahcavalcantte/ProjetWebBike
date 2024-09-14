@@ -752,9 +752,9 @@ background-color: var(--secundaria-color);
   display: block;
 }
 
-/* #galeria-trilhas h2{
-  text-transform: uppercase;
-} */
+.info-trilhas h2{
+  padding-bottom: 20px;
+}
 
 #galeria-trilhas{
   display: grid;
@@ -1023,6 +1023,10 @@ background-color: var(--secundaria-color);
   justify-content: space-between;
 }
 
+.cards-icons h3{
+  padding-top: 0px;
+}
+
 .card-info{
   display: flex;
   align-items: center;
@@ -1234,7 +1238,7 @@ background-color: var(--secundaria-color);
 }
 
 
-@media (max-width:939px) {
+@media (max-width:939px){
 
 /* Menu Navegação */
 
@@ -1278,7 +1282,7 @@ background-color: var(--secundaria-color);
     left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    z-index: 100;/
+    z-index: 100;
   }
 
   .container-navegacao .menu-toggle {
@@ -1484,8 +1488,7 @@ background-color: var(--secundaria-color);
 }
 
 #galeria-trilhas{
-  grid-template-columns: 1fr;
-  
+  grid-template-columns: 1fr;  
 }
 
 .galeria-metricas{
@@ -1537,6 +1540,7 @@ background-color: var(--secundaria-color);
 }
 
 }
+
 
 
 @media (max-width:595px) {
