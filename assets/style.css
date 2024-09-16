@@ -1099,7 +1099,7 @@ background-color: var(--secundaria-color);
   display: none;
 }
 
-.galeria-scroll, .galeria-scroll-1{
+.galeria-scroll, .galeria-scroll-1, .galeria-scroll-2{
   display: flex;
   gap: 20px;
   padding: 20px 0;
@@ -1145,11 +1145,11 @@ background-color: var(--secundaria-color);
   position: absolute;
 }
 
-.nav-arrow-left, .seta-esquerda, .nav-arrow-left-1 {
+.nav-arrow-left, .seta-esquerda, .nav-arrow-left-1, .nav-arrow-left-2 {
   left: 0;
 }
 
-.nav-arrow-right, .seta-direita, .nav-arrow-right-1 {
+.nav-arrow-right, .seta-direita, .nav-arrow-right-1, .nav-arrow-right-2 {
   right: 0;
 }
 
@@ -1536,7 +1536,7 @@ background-color: var(--secundaria-color);
   padding: 10px 0;
 }
 
-.galeria-scroll, .galeria-scroll-1{
+.galeria-scroll, .galeria-scroll-1, .galeria-scroll-2{
   padding: 10px 0 0;
 }
 

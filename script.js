@@ -61,33 +61,95 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Curtir trilha
 const imagemCurtir = document.querySelectorAll('.curtir-trilha img');
-
 const srcOriginalCurtir = 'images/icons8-gostar-50.png';
 const srcAtivoCurtir = 'images/icons8-heart-50.png'; 
 
-imagemCurtir.forEach(function(imagemCurtir){
+imagemCurtir.forEach(function(imagemCurtir) {
   let curtirAtivo = false;
 
-// Eventos de mouseover e mouseout para alteração de imagem
-imagemCurtir.addEventListener('mouseover', function() {
+  // Obtém o contador de curtidas associado ao ícone
+  const likeCountElement = imagemCurtir.nextElementSibling; // O próximo elemento <h3> com o número de curtidas
+  let currentCount = parseInt(likeCountElement.textContent, 10); // Converte o texto para número
+
+  // Eventos de mouseover e mouseout para alteração de imagem
+  imagemCurtir.addEventListener('mouseover', function() {
     if (!curtirAtivo) { 
         this.src = srcAtivoCurtir; 
     }
-});
+  });
 
-imagemCurtir.addEventListener('mouseout', function() {
+  imagemCurtir.addEventListener('mouseout', function() {
     if (!curtirAtivo) { 
         this.src = srcOriginalCurtir;
     }
-});
+  });
 
-imagemCurtir.addEventListener('click', function() {
-    curtirAtivo = !curtirAtivo; 
-    
+  imagemCurtir.addEventListener('click', function() {
+    curtirAtivo = !curtirAtivo; // Inverte o estado (curtido ou não)
+
+    // Altera a imagem de acordo com o estado (curtido ou não)
     this.src = curtirAtivo ? srcAtivoCurtir : srcOriginalCurtir;
+
+    // Atualiza o número de curtidas com base no estado
+    if (curtirAtivo) {
+      currentCount += 1; // Aumenta curtida
+    } else {
+      currentCount -= 1; // Diminui curtida
+    }
+
+    // Atualiza o texto no elemento de curtidas
+    likeCountElement.textContent = currentCount;
+  });
 });
 
+
+// Função número de curtidas
+document.addEventListener('DOMContentLoaded', function () {
+  // Array de trilhas com ID e contadores
+  const trilhas = [
+    { id: 'goulart', likes: 0 },
+    { id: 'pirapo', likes: 0 }
+  ];
+
+  // Função para carregar likes salvos no localStorage
+  function loadLikes() {
+    trilhas.forEach(function (trilha) {
+      // Carregar valor do localStorage, ou usar o valor inicial (0) e garantir que seja um número
+      const savedLikes = parseInt(localStorage.getItem(`${trilha.id}Likes`), 10) || trilha.likes;
+      document.getElementById(`${trilha.id}-count`).textContent = savedLikes;
+    });
+  }
+
+  // Função para salvar os likes no localStorage
+  function saveLikes(trilhaId, newLikes) {
+    localStorage.setItem(`${trilhaId}Likes`, newLikes);
+  }
+
+  // Carregar likes ao iniciar a página
+  loadLikes();
+
+  // Selecione todos os botões de curtida
+  const likeButtons = document.querySelectorAll('.like-btn');
+
+  likeButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      const trilhaId = button.getAttribute('data-trilha'); // Identifica qual trilha foi clicada
+      const likeCountElement = document.getElementById(`${trilhaId}-count`); // Seleciona o contador certo
+      let currentCount = parseInt(likeCountElement.textContent, 10); // Obtém o valor atual
+
+      // Incrementa o número de curtidas
+      currentCount += 1;
+      likeCountElement.textContent = currentCount;
+
+      // Salva o novo valor no localStorage
+      saveLikes(trilhaId, currentCount);
+    });
+  });
 });
+
+
+
+
 
 
 // Background Srcrool Imagem
@@ -311,6 +373,12 @@ document.addEventListener('DOMContentLoaded', function () {
           quantidadeRolagem: 200         // Quantidade de rolagem para a primeira galeria
       },
       {
+          esquerda: '.nav-arrow-left-2',   // Classe da seta esquerda para a primeira galeria
+          direita: '.nav-arrow-right-2',   // Classe da seta direita para a primeira galeria
+          container: '.galeria-scroll-2',  // Classe do contêiner da primeira galeria
+          quantidadeRolagem: 200         // Quantidade de rolagem para a primeira galeria
+      },
+      {
           esquerda: '.seta-esquerda',    // Classe da seta esquerda para a segunda galeria
           direita: '.seta-direita',      // Classe da seta direita para a segunda galeria
           container: '.container-cards', // Classe do contêiner da segunda galeria
@@ -390,6 +458,8 @@ document.addEventListener('DOMContentLoaded', function () {
   setupFullscreenGallery('.galeria-scroll-1', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
 
   setupFullscreenGallery('.passeios', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
+
+  setupFullscreenGallery('.galeria-scroll-2', 'img', 'fullscreen-view', 'fullscreen-img', 'close-btn');
   
 });
 
