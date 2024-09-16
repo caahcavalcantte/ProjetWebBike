@@ -1605,11 +1605,6 @@ background-color: var(--secundaria-color);
     
   }
 
-  .curtir-trilha h3{
-    display: none;
-  }
-
-
   .metrica-trilha{
     flex: 1 0 30%;
   }
