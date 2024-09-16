@@ -602,9 +602,9 @@ background-color: var(--secundaria-color);
 }
 
 .info-trilhas{
-  flex: 3 0 200px;
+  flex: 1 0 200px;
   gap: 20px;
-  padding: 20px; 
+  padding: 20px;
 }
 
 .info-trilhas h3, .card-info h3 {

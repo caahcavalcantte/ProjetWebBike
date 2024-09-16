@@ -148,10 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-
-
-
 // Background Srcrool Imagem
 // document.addEventListener('DOMContentLoaded', function() {
 //   const images = [
@@ -352,8 +348,6 @@ document.querySelectorAll('.trilha-link').forEach(function(link) {
 document.addEventListener('DOMContentLoaded', function() {
   showTrilha('trilha-1');
 });
-
-
 
 
 // Função barra de rolamento
